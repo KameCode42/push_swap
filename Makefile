@@ -8,6 +8,7 @@ RM			= rm -f
 FLAGS		= -Wall -Wextra -Werror -Iinc
 
 SRCS 		= ./src/push_swap.c \
+			./src/check_error.c \
 
 OBJS 		= $(SRCS:.c=.o)
 

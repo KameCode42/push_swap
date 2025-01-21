@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:52:32 by david             #+#    #+#             */
-/*   Updated: 2025/01/19 17:17:47 by david            ###   ########.fr       */
+/*   Updated: 2025/01/21 18:05:38 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	main(int argc, char **argv)
 {
-	if (check_args(argc))
+	if (check_args(argc, argv))
 		return (1);
-	if (check_digit(argc, argv))
-		return (1);
+	//if (check_digit(argc, argv))
+		//return (1);
 	//checker si  cest bien des chiffre
 	//checker les doublons
 

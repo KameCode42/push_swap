@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/23 17:18:34 by david            ###   ########.fr       */
+/*   Updated: 2025/01/23 18:52:28 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,8 @@ int	ft_atol(const char *str, char **end);
 int	check_number(int argc, char **argv);
 int	check_duplicate(int argc, char **argv);
 int	check_args(int argc, char **argv);
+
+//init_stack
+int	init_stack(t_stacks *stack, int argc, char **argv);
 
 #endif

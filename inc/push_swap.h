@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/23 13:23:11 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/23 17:18:34 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ typedef struct s_stack
 	int	size_a;
 	int	size_b;
 }		t_stacks;
+
+//utils
+int	ft_atol(const char *str, char **end);
 
 //check_error
 int	check_number(int argc, char **argv);

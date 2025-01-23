@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/01/23 13:40:51 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/23 18:22:51 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,15 @@
 int	check_number(int argc, char **argv)
 {
 	int		i;
-	long	nbr;
 	char	*end;
 
 	i = 1;
 	while (i < argc)
 	{
-		nbr = strtol(argv[i], &end, 10);
+		ft_atol(argv[i], &end);
 		if (*end != '\0')
 		{
-			ft_printf("Error : invalid number\n");
-			return (1);
-		}
-		if (nbr > INT_MAX || nbr < INT_MIN)
-		{
-			ft_printf("Error : the number does not fit into an integer\n");
+			ft_printf("Error : invalid number: %s\n", argv[i]);
 			return (1);
 		}
 		i++;
@@ -47,11 +41,11 @@ int	check_duplicate(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		nbr_i = ft_atoi(argv[i]);
+		nbr_i = ft_atol(argv[i], NULL);
 		j = i + 1;
 		while (j < argc)
 		{
-			nbr_j = ft_atoi(argv[j]);
+			nbr_j = ft_atol(argv[j], NULL);
 			if (nbr_i == nbr_j)
 			{
 				ft_printf("Error : duplicate detected\n");
@@ -66,26 +60,17 @@ int	check_duplicate(int argc, char **argv)
 
 int	check_args(int argc, char **argv)
 {
-	int	i;
-
-	i = 1;
 	if (argc < 2)
 	{
 		ft_printf("Error : invalid argument number\n");
 		return (1);
 	}
-	else if (argc == 2)
+	if (argc == 2)
 	{
 		ft_printf("Error : no numbers to sort\n");
 		return (1);
 	}
-	while (i < argc)
-	{
-		if (check_number(argc, argv))
-			return (1);
-		if (check_duplicate(argc, argv))
-			return (1);
-		i++;
-	}
+	if ((check_number(argc, argv)) || (check_duplicate(argc, argv)))
+		return (1);
 	return (0);
 }

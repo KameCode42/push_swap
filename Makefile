@@ -9,6 +9,7 @@ FLAGS		= -Wall -Wextra -Werror -Iinc
 
 SRCS 		= ./src/push_swap.c \
 			./src/check_error.c \
+			./src/utils.c \
 
 OBJS 		= $(SRCS:.c=.o)
 

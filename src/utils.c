@@ -1,42 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 11:01:03 by dle-fur           #+#    #+#             */
-/*   Updated: 2025/01/23 17:12:42 by david            ###   ########.fr       */
+/*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
+/*   Updated: 2025/01/23 17:43:20 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_atoi(const char *str)
+static int	skip_space_and_sign(const char *str, int *sign)
+{
+	int	i;
+
+	i = 0;
+	*sign = 1;
+	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			*sign = -(*sign);
+		i++;
+	}
+	return (i);
+}
+
+int	ft_atol(const char *str, char **end)
 {
 	int	i;
 	int	sign;
 	int	result;
 
-	i = 0;
-	sign = 1;
+	i = skip_space_and_sign(str, &sign);
 	result = 0;
-	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
-	{
-		i++;
-	}
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-		{
-			sign = -sign;
-		}
-		i++;
-	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		if (result > (INT_MAX - (str[i] - 48)) / 10)
+		{
+			if (end != NULL)
+				*end = (char *)&str[i];
+			if (sign == 1)
+				return (INT_MAX);
+			else
+				return (INT_MIN);
+		}
 		result = (result * 10) + (str[i] - 48);
 		i++;
 	}
+	if (end != NULL)
+		*end = (char *)&str[i];
 	return (result * sign);
 }

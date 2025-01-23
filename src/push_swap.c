@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:52:32 by david             #+#    #+#             */
-/*   Updated: 2025/01/21 18:05:38 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/23 13:39:53 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ int	main(int argc, char **argv)
 {
 	if (check_args(argc, argv))
 		return (1);
-	//if (check_digit(argc, argv))
-		//return (1);
-	//checker si  cest bien des chiffre
-	//checker les doublons
-
 	//init stack
 	//inclure check args
 	//inclure rentre dans un int

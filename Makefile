@@ -12,6 +12,7 @@ SRCS 		= ./src/push_swap.c \
 			./src/utils.c \
 			./src/init_stack.c \
 			./src/swap.c \
+			./src/push.c \
 
 OBJS 		= $(SRCS:.c=.o)
 

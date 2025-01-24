@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:25:04 by david             #+#    #+#             */
-/*   Updated: 2025/01/24 10:20:03 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:58:54 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	init_stack(t_stacks *stack, int argc, char **argv)
 	while (i < stack->size_a)
 	{
 		stack->a[i] = ft_atol(argv[i + 1], NULL);
-		ft_printf("%d\n", stack->a[i]);
+		//ft_printf("%d\n", stack->a[i]);
 		i++;
 	}
 	return (0);

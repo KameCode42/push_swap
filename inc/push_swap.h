@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/24 12:25:59 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/24 18:23:11 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ int		check_args(int argc, char **argv);
 void	swap_a(t_stacks *stack);
 void	swap_b(t_stacks *stacks);
 void	swap_a_and_b(t_stacks *stack);
+
+//push
+void	push_b(t_stacks *stack);
 
 //init_stack
 int		init_stack(t_stacks *stack, int argc, char **argv);

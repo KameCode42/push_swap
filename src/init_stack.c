@@ -3,31 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:25:04 by david             #+#    #+#             */
-/*   Updated: 2025/01/23 20:12:30 by david            ###   ########.fr       */
+/*   Updated: 2025/01/24 10:20:03 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	alloc_stack(t_stacks *stack, int argc)
+//fonction qui permet d allouer les stack a et b
+static int	alloc_stack(t_stacks *stack, int argc)
 {
 	if (stack == NULL)
-		return ;
+		return (1);
 	stack->size_a = argc - 1;
 	stack->size_b = 0;
-	stack->stack_a = malloc(sizeof(int) * stack->size_a);
-	stack->stack_b = malloc(sizeof(int) * stack->size_a);
-	if ((stack->stack_a == NULL) || (stack->stack_b == NULL))
+	stack->a = malloc(sizeof(int) * stack->size_a);
+	stack->b = malloc(sizeof(int) * stack->size_a);
+	if ((stack->a == NULL) || (stack->b == NULL))
 	{
-		free(stack->stack_a);
-		free(stack->stack_b);
-		return ;
+		free(stack->a);
+		free(stack->b);
+		return (1);
 	}
+	return (0);
 }
 
+//fonction qui permet de remplir la stack a
 int	init_stack(t_stacks *stack, int argc, char **argv)
 {
 	int	i;
@@ -35,17 +38,18 @@ int	init_stack(t_stacks *stack, int argc, char **argv)
 	i = 0;
 	if (stack == NULL)
 		return (1);
-	alloc_stack(stack, argc);
+	if (alloc_stack(stack, argc) != 0)
+		return (1);
 	if (check_args(argc, argv) != 0)
 	{
-		free(stack->stack_a);
-		free(stack->stack_b);
+		free(stack->a);
+		free(stack->b);
 		return (1);
 	}
 	while (i < stack->size_a)
 	{
-		stack->stack_a[i] = ft_atol(argv[i + 1], NULL);
-		//ft_printf("%d\n", stack->stack_a[i]);
+		stack->a[i] = ft_atol(argv[i + 1], NULL);
+		ft_printf("%d\n", stack->a[i]);
 		i++;
 	}
 	return (0);

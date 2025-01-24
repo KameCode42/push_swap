@@ -11,6 +11,7 @@ SRCS 		= ./src/push_swap.c \
 			./src/check_error.c \
 			./src/utils.c \
 			./src/init_stack.c \
+			./src/swap.c \
 
 OBJS 		= $(SRCS:.c=.o)
 

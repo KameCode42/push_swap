@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/01/23 17:43:20 by david            ###   ########.fr       */
+/*   Updated: 2025/01/24 09:54:12 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static int	skip_space_and_sign(const char *str, int *sign)
 	return (i);
 }
 
+//fonction qui permet de check si le nbr est un INT_MAX ou MIN
+//convertit les nombres qui sont en str en int
 int	ft_atol(const char *str, char **end)
 {
 	int	i;

@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/01/23 18:22:51 by david            ###   ########.fr       */
+/*   Updated: 2025/01/24 09:48:09 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//fonction qui permet de check si un nbr est valide
+//exemple 123abc ou 12bchd2 = non valide
 int	check_number(int argc, char **argv)
 {
 	int		i;
@@ -31,6 +33,7 @@ int	check_number(int argc, char **argv)
 	return (0);
 }
 
+//fonction qui check si il n y a pas de doublon
 int	check_duplicate(int argc, char **argv)
 {
 	int	i;
@@ -58,6 +61,8 @@ int	check_duplicate(int argc, char **argv)
 	return (0);
 }
 
+//fonction qui check les argument et inclus les fonctions
+//check_number et check_dup
 int	check_args(int argc, char **argv)
 {
 	if (argc < 2)

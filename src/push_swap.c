@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:52:32 by david             #+#    #+#             */
-/*   Updated: 2025/01/23 20:14:39 by david            ###   ########.fr       */
+/*   Updated: 2025/01/24 10:20:17 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	if (init_stack(&stack, argc, argv) != 0)
 		return (1);
-	free(stack.stack_a);
-	free(stack.stack_b);
+	free(stack.a);
+	free(stack.b);
 	return (0);
 }

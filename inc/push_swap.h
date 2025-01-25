@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 10:09:38 by david            ###   ########.fr       */
+/*   Updated: 2025/01/25 10:36:30 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,10 @@ void	push_b(t_stacks *stack);
 void	rotate_a(t_stacks *stack);
 void	rotate_b(t_stacks *stack);
 void	rotate_a_and_b(t_stacks *stack);
+
+//reverse_rotate
+void	reverse_rotate_a(t_stacks *stack);
+void	reverse_rotate_b(t_stacks *stack);
 
 /*----------------------------------------------------------------------------*/
 

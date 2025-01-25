@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/24 18:23:11 by david            ###   ########.fr       */
+/*   Updated: 2025/01/25 10:09:38 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ typedef struct s_stack
 	int	size_b;
 }		t_stacks;
 
+//swap
+void	swap_a(t_stacks *stack);
+void	swap_b(t_stacks *stacks);
+void	swap_a_and_b(t_stacks *stack);
+
+//push
+void	push_a(t_stacks *stack);
+void	push_b(t_stacks *stack);
+
+//rotate
+void	rotate_a(t_stacks *stack);
+void	rotate_b(t_stacks *stack);
+void	rotate_a_and_b(t_stacks *stack);
+
+/*----------------------------------------------------------------------------*/
+
 //utils
 int		ft_atol(const char *str, char **end);
 
@@ -34,14 +50,6 @@ int		ft_atol(const char *str, char **end);
 int		check_number(int argc, char **argv);
 int		check_duplicate(int argc, char **argv);
 int		check_args(int argc, char **argv);
-
-//swap
-void	swap_a(t_stacks *stack);
-void	swap_b(t_stacks *stacks);
-void	swap_a_and_b(t_stacks *stack);
-
-//push
-void	push_b(t_stacks *stack);
 
 //init_stack
 int		init_stack(t_stacks *stack, int argc, char **argv);

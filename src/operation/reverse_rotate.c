@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:17:26 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 11:17:35 by david            ###   ########.fr       */
+/*   Updated: 2025/01/25 12:11:50 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	reverse_rotate_b(t_stacks *stack)
 	i = stack->size_b - 1;
 	while (i > 0)
 	{
-		stack->b[i] = stack->b[i - 1];
+		stack->b[i] = stack->b[i - 1];//decale les element vers le bas
 		i--;
 	}
 	stack->b[0] = tmp;

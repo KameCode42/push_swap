@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 18:59:22 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 11:16:11 by david            ###   ########.fr       */
+/*   Updated: 2025/01/25 12:09:08 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	rotate_b(t_stacks *stack)
 	i = 0;
 	while (i < stack->size_b - 1)
 	{
-		stack->b[i] = stack->b[i + 1];
+		stack->b[i] = stack->b[i + 1];//decale les elements vers le haut
 		i++;
 	}
 	stack->b[stack->size_b - 1] = tmp;
@@ -52,7 +52,7 @@ void	rotate_b(t_stacks *stack)
 void	rotate_a_and_b(t_stacks *stack)
 {
 	int	i;
-	int	j
+	int	j;
 	int	tmp_a;
 	int	tmp_b;
 

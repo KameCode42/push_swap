@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/01/24 09:48:09 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/25 13:18:34 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	check_number(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		ft_atol(argv[i], &end);
+		convert_number(argv[i], &end);
 		if (*end != '\0')
 		{
 			ft_printf("Error : invalid number: %s\n", argv[i]);
@@ -44,11 +44,11 @@ int	check_duplicate(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		nbr_i = ft_atol(argv[i], NULL);
+		nbr_i = convert_number(argv[i], NULL);
 		j = i + 1;
 		while (j < argc)
 		{
-			nbr_j = ft_atol(argv[j], NULL);
+			nbr_j = convert_number(argv[j], NULL);
 			if (nbr_i == nbr_j)
 			{
 				ft_printf("Error : duplicate detected\n");

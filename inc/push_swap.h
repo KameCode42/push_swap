@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 10:59:35 by david            ###   ########.fr       */
+/*   Updated: 2025/01/25 13:18:57 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	rrr_a_and_b(t_stacks * stack);
 /*----------------------------------------------------------------------------*/
 
 //utils
-int		ft_atol(const char *str, char **end);
+int		convert_number(const char *str, char **end);
 
 //check_error
 int		check_number(int argc, char **argv);

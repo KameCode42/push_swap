@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 13:18:57 by david            ###   ########.fr       */
+/*   Updated: 2025/01/25 13:42:38 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ typedef struct s_stack
 	int	size_b;
 }		t_stacks;
 
+/***************************/
+/*        OPERATION        */
+/***************************/
 //swap
 void	swap_a(t_stacks *stack);
 void	swap_b(t_stacks *stacks);
@@ -44,7 +47,15 @@ void	rotate_a_and_b(t_stacks *stack);
 //reverse_rotate
 void	reverse_rotate_a(t_stacks *stack);
 void	reverse_rotate_b(t_stacks *stack);
-void	rrr_a_and_b(t_stacks * stack);
+void	rrr_a_and_b(t_stacks *stack);
+
+/*----------------------------------------------------------------------------*/
+
+/***************************/
+/*        ALGORITHM        */
+/***************************/
+
+//basic_sort
 
 /*----------------------------------------------------------------------------*/
 

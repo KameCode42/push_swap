@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 13:38:46 by david             #+#    #+#             */
-/*   Updated: 2025/01/26 17:22:53 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/26 18:00:27 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,21 @@ void	sort_three(t_stacks *stack)
 	if (stack->a[0] == 1)
 		swap_a(stack);
 }
+
+void	sort_four(t_stacks *stack)
+{
+	while (stack->size_b == 0)
+	{
+		if (stack->a[0] == 3)
+			push_b(stack);
+		else
+			rotate_a(stack);
+	}
+	sort_three(stack);
+	push_a(stack);
+	rotate_a(stack);
+}
+
+//5
+
+//6+ == radix algo

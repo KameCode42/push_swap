@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/26 16:54:39 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/26 17:51:58 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	rrr_a_and_b(t_stacks *stack);
 //basic_sort
 void	sort_two(t_stacks *stack);
 void	sort_three(t_stacks *stack);
+void	sort_four(t_stacks *stack);
 
 /*----------------------------------------------------------------------------*/
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 14:16:45 by david            ###   ########.fr       */
+/*   Updated: 2025/01/26 16:54:39 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,14 @@ void	rrr_a_and_b(t_stacks *stack);
 /***************************/
 
 //basic_sort
-int	sort_two(t_stacks *stack);
-int	sort_three(t_stacks *stack);
+void	sort_two(t_stacks *stack);
+void	sort_three(t_stacks *stack);
 
 /*----------------------------------------------------------------------------*/
 
 //utils
 int		convert_number(const char *str, char **end);
+void	init_index(t_stacks *stack);
 
 //check_error
 int		check_number(int argc, char **argv);
@@ -70,6 +71,6 @@ int		check_duplicate(int argc, char **argv);
 int		check_args(int argc, char **argv);
 
 //init_stack
-int		init_stack(t_stacks *stack, int argc, char **argv);
+void	init_stack(t_stacks *stack, int argc, char **argv);
 
 #endif

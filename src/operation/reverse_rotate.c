@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:17:26 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 12:11:50 by david            ###   ########.fr       */
+/*   Updated: 2025/01/26 14:41:29 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	reverse_rotate_b(t_stacks *stack)
 	ft_printf("rrb\n");
 }
 
-void	rrr_a_and_b(t_stacks * stack)
+void	rrr_a_and_b(t_stacks *stack)
 {
 	int	i;
 	int	j;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:25:04 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 13:54:31 by david            ###   ########.fr       */
+/*   Updated: 2025/01/26 16:51:05 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,25 +31,21 @@ static int	alloc_stack(t_stacks *stack, int argc)
 }
 
 //fonction qui permet de remplir la stack a
-int	init_stack(t_stacks *stack, int argc, char **argv)
+void	init_stack(t_stacks *stack, int argc, char **argv)
 {
 	int	i;
 
 	i = 0;
 	if (stack == NULL)
-		return (1);
+		exit(1);
 	if (alloc_stack(stack, argc) != 0)
-		return (1);
-	if (check_args(argc, argv) != 0)
 	{
-		free(stack->a);
-		free(stack->b);
-		return (1);
+		free(stack);
+		exit(1);
 	}
 	while (i < stack->size_a)
 	{
 		stack->a[i] = convert_number(argv[i + 1], NULL);
 		i++;
 	}
-	return (0);
 }

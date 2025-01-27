@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:52:32 by david             #+#    #+#             */
-/*   Updated: 2025/01/26 18:26:05 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/27 20:00:51 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ int	main(int argc, char **argv)
 
 	if (check_args(argc, argv) != 0)
 		return (1);
-	init_stack(&stack, argc, argv);
-	init_index(&stack);
-	//check sort
-	sort_three(&stack);
+	create_stack(&stack, argc, argv);
+	create_index(&stack);
+	check_sort(&stack);
 	free(stack.a);
 	free(stack.b);
 	return (0);
@@ -34,8 +33,9 @@ int main(int argc, char **argv)
 
     if (check_args(argc, argv) != 0)
         return (1);
-    init_stack(&stack, argc, argv);
-    init_index(&stack);
+    create_stack(&stack, argc, argv);
+    create_index(&stack);
+	check_sort(&stack);
 
 
     // Affiche la pile avant le tri

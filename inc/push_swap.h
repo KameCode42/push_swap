@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/26 17:51:58 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/27 19:30:01 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,15 @@ void	sort_four(t_stacks *stack);
 
 //utils
 int		convert_number(const char *str, char **end);
-void	init_index(t_stacks *stack);
+void	check_sort(t_stacks *stack);
 
-//check_error
+//error
 int		check_number(int argc, char **argv);
 int		check_duplicate(int argc, char **argv);
 int		check_args(int argc, char **argv);
 
-//init_stack
-void	init_stack(t_stacks *stack, int argc, char **argv);
+//initiation
+void	create_stack(t_stacks *stack, int argc, char **argv);
+void	create_index(t_stacks *stack);
 
 #endif

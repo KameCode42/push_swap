@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:25:04 by david             #+#    #+#             */
-/*   Updated: 2025/01/26 16:51:05 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/27 19:13:44 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	alloc_stack(t_stacks *stack, int argc)
 }
 
 //fonction qui permet de remplir la stack a
-void	init_stack(t_stacks *stack, int argc, char **argv)
+void	create_stack(t_stacks *stack, int argc, char **argv)
 {
 	int	i;
 

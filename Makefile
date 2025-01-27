@@ -10,7 +10,10 @@ FLAGS		= -Wall -Wextra -Werror -Iinc
 SRCS 		= \
 ./src/operation/swap.c ./src/operation/push.c ./src/operation/rotate.c ./src/operation/reverse_rotate.c \
 ./src/algorithm/basic_sort.c \
-./src/push_swap.c ./src/check_error.c ./src/utils.c ./src/init_stack.c \
+./src/error/check_error.c \
+./src/initiation/init_stack.c ./src/initiation/init_index.c \
+./src/push_swap/push_swap.c \
+./src/utils/utils.c \
 
 OBJS 		= $(SRCS:.c=.o)
 

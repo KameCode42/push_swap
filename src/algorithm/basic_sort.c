@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 13:38:46 by david             #+#    #+#             */
-/*   Updated: 2025/01/27 19:32:22 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/29 21:00:42 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,38 @@ void	sort_three(t_stacks *stack)
 
 void	sort_four(t_stacks *stack)
 {
-	while (stack->size_b == 0)
+	while (stack->size_b == 0)//tant que c est vide b la boucle continue
 	{
-		if (stack->a[0] == 3)
+		if (stack->a[0] == 3)//si 3 trouver la boucle s arrete car b == 1
 			push_b(stack);
 		else
 			rotate_a(stack);
 	}
-	sort_three(stack);
+	sort_three(stack);//on passe a ici
 	push_a(stack);
 	rotate_a(stack);
 }
 
-//5
+void	sort_five(t_stacks *stack)
+{
+	while (stack->size_b <= 1)
+	{
+		if (stack->a[0] == 0 || stack->a[0] == 1)
+			push_b(stack);
+		else
+			rotate_a(stack);
+	}
+	if (stack->b[0] < stack->b[1])
+	{
+		swap_b(stack);
+		push_a(stack);
+		push_a(stack);
+	}
+	else
+	{
+		push_a(stack);
+		push_a(stack);
+	}
+}
 
 //6+ == radix algo

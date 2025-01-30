@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 13:38:46 by david             #+#    #+#             */
-/*   Updated: 2025/01/29 21:00:42 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/30 09:33:06 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ void	sort_five(t_stacks *stack)
 			push_b(stack);
 		else
 			rotate_a(stack);
+	}
+	//trier les 3 elements
+	if (stack->a[0] > stack->a[1])
+	{
+		swap_a(stack);
+		reverse_rotate_a(stack);
 	}
 	if (stack->b[0] < stack->b[1])
 	{

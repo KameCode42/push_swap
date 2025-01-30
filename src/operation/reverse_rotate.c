@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 10:17:26 by david             #+#    #+#             */
-/*   Updated: 2025/01/26 14:41:29 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/30 10:20:48 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//deplace tous les elements de la pile a
-//le dernier element devient le premier
 void	reverse_rotate_a(t_stacks *stack)
 {
 	int	i;
@@ -30,8 +28,6 @@ void	reverse_rotate_a(t_stacks *stack)
 	ft_printf("rra\n");
 }
 
-//deplace tous les elements de la pile b
-//le dernier element devient le premier
 void	reverse_rotate_b(t_stacks *stack)
 {
 	int	i;
@@ -41,7 +37,7 @@ void	reverse_rotate_b(t_stacks *stack)
 	i = stack->size_b - 1;
 	while (i > 0)
 	{
-		stack->b[i] = stack->b[i - 1];//decale les element vers le bas
+		stack->b[i] = stack->b[i - 1];
 		i--;
 	}
 	stack->b[0] = tmp;

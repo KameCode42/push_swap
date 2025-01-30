@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:25:04 by david             #+#    #+#             */
-/*   Updated: 2025/01/27 19:13:44 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/30 10:30:08 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//fonction qui permet d allouer les stack a et b
 static int	alloc_stack(t_stacks *stack, int argc)
 {
 	if (stack == NULL)
@@ -30,7 +29,6 @@ static int	alloc_stack(t_stacks *stack, int argc)
 	return (0);
 }
 
-//fonction qui permet de remplir la stack a
 void	create_stack(t_stacks *stack, int argc, char **argv)
 {
 	int	i;

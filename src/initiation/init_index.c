@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   init_index.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 19:14:34 by dle-fur           #+#    #+#             */
-/*   Updated: 2025/01/27 19:15:19 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/30 10:29:19 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//calcule la taille d un index en fontion du nombre de chiffre
+
 void	create_index(t_stacks *stack)
 {
 	int	*index_a;

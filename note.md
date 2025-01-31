@@ -3,7 +3,8 @@ push_swap :
 - Algo utilise : radix
 
 Radix
-- algo qui permet de trier des nombres par leur dizaine 
+- algo qui permet de trier des nombres par leur dizaine
+- si le case du nombre a comparer est vide, on met un 0
 exemple :
 
 

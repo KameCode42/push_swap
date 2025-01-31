@@ -9,7 +9,7 @@ FLAGS		= -Wall -Wextra -Werror -Iinc
 
 SRCS 		= \
 ./src/operation/swap.c ./src/operation/push.c ./src/operation/rotate.c ./src/operation/reverse_rotate.c \
-./src/algorithm/basic_sort.c \
+./src/algorithm/basic_sort.c ./src/algorithm/radix_sort.c \
 ./src/error/check_error.c \
 ./src/initiation/init_stack.c ./src/initiation/init_index.c \
 ./src/push_swap/push_swap.c \

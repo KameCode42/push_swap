@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/01/31 10:37:09 by david            ###   ########.fr       */
+/*   Updated: 2025/01/31 13:18:49 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	sort_five(t_stacks *stack);
 //utils
 int		convert_number(const char *str, char **end);
 void	check_sort(t_stacks *stack);
+int	power(int base, int exposant);
 
 //error
 int		check_number(int argc, char **argv);

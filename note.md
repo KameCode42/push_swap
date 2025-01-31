@@ -128,15 +128,14 @@ on rotate effectuer le trie final
 - sort_five
 fonction qui permet de trier 5 nombres a l'aide de la pile b
 tant que la pile b ne contient pas deux elements la boucle continue
-si index 0 == 0		-> plus petit nombre
+si index 0 == 3		-> deuxieme plus grand nombre
 push dans la pile b
-si index 0 == 1		-> deuxieme plus petit nombre
+si index 0 == 4		-> plus grand nombre
 push dans la pile b
 on trie les 3 elements de a
-on trie si besoin les elements de b
-les elements de b doivent etre decroissant
-si index 0 < index 1
-swap et push
-si non push
+push a 2 fois dans la pile a
+si l index 0 == au plus grand nombre
+swap
+rotate pour le trie final
 
 -------------------------------------------------------------------------------------------------------------

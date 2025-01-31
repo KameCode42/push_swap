@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/01/27 20:03:55 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/01/31 13:18:41 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,19 @@ void	check_sort(t_stacks *stack)
 	}
 	write(1, "stack sort\n", 11);
 	exit (0);
+}
+
+int	power(int base, int exposant)
+{
+	int	result;
+	int	i;
+
+	result = 1;
+	i = 0;
+	while (i < exposant)
+	{
+		result	= result * base;
+		i++;
+	}
+	return (result);
 }

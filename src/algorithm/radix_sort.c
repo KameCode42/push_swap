@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:59:49 by david             #+#    #+#             */
-/*   Updated: 2025/01/31 10:40:27 by david            ###   ########.fr       */
+/*   Updated: 2025/01/31 13:51:16 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,26 @@ static	int	count_pass(t_stacks *stack)
 
 void	radix_sort(t_stacks *stack)
 {
-	int	count[10];
+	int	count[10];//tableau count init a 0
+	int	pass_max;//nbr de passe a faire
+	int	pass = 1;//commence par le 1er pass
+	int	power;
+	int	digit;
+	int	i;
 
-	count = 0;
+	ft_memset(count, 0, sizeof(count));//init count a 0
+	pass_max = count_pass(stack);
+	while (pass <= pass_max)
+	{
+		ft_memset(count, 0, sizeof(count));//a chaque pass on remet a 0
+		i = 0;
+		power = power(10, pass - 1);//comme a l index pass 0 qui est pass 1
+		while (i < stack->size_a)
+		{
+			digit = (stack->a[i] / power) % 10;//on extrait chaque chiffre
+			count[digit]++;
+			i++;
+		}
+		pass++;
+	}
 }

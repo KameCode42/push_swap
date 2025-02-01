@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:52:32 by david             #+#    #+#             */
-/*   Updated: 2025/01/31 10:40:04 by david            ###   ########.fr       */
+/*   Updated: 2025/01/31 17:23:42 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,7 @@ void	sort(t_stacks *stack)
 	else if (stack->size_a == 5)
 		sort_five(stack);
 	else
-	{
-		//radix
-	}
+		radix_sort(stack);
 }
 
 int	main(int argc, char **argv)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/01/31 13:18:41 by david            ###   ########.fr       */
+/*   Updated: 2025/01/31 15:35:03 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	check_sort(t_stacks *stack)
 	exit (0);
 }
 
-int	power(int base, int exposant)
+int	ft_power(int base, int exposant)
 {
 	int	result;
 	int	i;
@@ -82,7 +82,7 @@ int	power(int base, int exposant)
 	i = 0;
 	while (i < exposant)
 	{
-		result	= result * base;
+		result = result * base;
 		i++;
 	}
 	return (result);

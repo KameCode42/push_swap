@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:25:04 by david             #+#    #+#             */
-/*   Updated: 2025/01/30 10:30:08 by david            ###   ########.fr       */
+/*   Updated: 2025/02/02 16:15:27 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ void	create_stack(t_stacks *stack, int argc, char **argv)
 	int	i;
 
 	i = 0;
-	if (stack == NULL)
-		exit(1);
 	if (alloc_stack(stack, argc) != 0)
 	{
 		free(stack);

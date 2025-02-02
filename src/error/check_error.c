@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/02/01 12:39:06 by david            ###   ########.fr       */
+/*   Updated: 2025/02/02 16:14:30 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,9 @@ int	check_duplicate(int argc, char **argv)
 
 int	check_args(int argc, char **argv)
 {
+	int	i;
+
+	i = 0;
 	if (argc < 2)
 	{
 		ft_printf("Error : invalid argument number\n");
@@ -67,6 +70,11 @@ int	check_args(int argc, char **argv)
 	}
 	if (argc == 2)
 	{
+		while (argv[1][i] != '\0')
+		{
+			if (argv[1][i] == ' ')
+				return (0);
+		}
 		ft_printf("Error : no numbers to sort\n");
 		return (1);
 	}

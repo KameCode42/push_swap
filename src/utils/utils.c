@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/01/31 15:35:03 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/01 17:48:30 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ static int	skip_space_and_sign(const char *str, int *sign)
 	return (i);
 }
 
-//fonction qui permet de check si le nbr est un INT_MAX ou MIN
-//convertit les nombres qui sont en str en int
 int	convert_number(const char *str, char **end)
 {
 	int	i;
@@ -58,21 +56,6 @@ int	convert_number(const char *str, char **end)
 	return (result * sign);
 }
 
-void	check_sort(t_stacks *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->size_a - 1)
-	{
-		if (stack->a[i] > stack->a[i + 1])
-			return ;
-		i++;
-	}
-	write(1, "stack sort\n", 11);
-	exit (0);
-}
-
 int	ft_power(int base, int exposant)
 {
 	int	result;
@@ -86,4 +69,21 @@ int	ft_power(int base, int exposant)
 		i++;
 	}
 	return (result);
+}
+
+//rechercher le plus grand nombre du tableau
+int	max_value(t_stacks *stack)
+{
+	int	i;
+	int	max_value;
+
+	i = 0;
+	max_value = stack->a[i];
+	while (i < stack->size_a)
+	{
+		if (max_value < stack->a[i])
+			max_value = stack->a[i];
+		i++;
+	}
+	return (max_value);
 }

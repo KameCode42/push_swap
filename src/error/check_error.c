@@ -6,14 +6,12 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/01/25 13:18:34 by david            ###   ########.fr       */
+/*   Updated: 2025/02/01 12:39:06 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//fonction qui permet de check si un nbr est valide
-//exemple 123abc ou 12bchd2 = non valide
 int	check_number(int argc, char **argv)
 {
 	int		i;
@@ -33,7 +31,6 @@ int	check_number(int argc, char **argv)
 	return (0);
 }
 
-//fonction qui check si il n y a pas de doublon
 int	check_duplicate(int argc, char **argv)
 {
 	int	i;
@@ -61,8 +58,6 @@ int	check_duplicate(int argc, char **argv)
 	return (0);
 }
 
-//fonction qui check les argument et inclus les fonctions
-//check_number et check_dup
 int	check_args(int argc, char **argv)
 {
 	if (argc < 2)

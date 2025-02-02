@@ -6,11 +6,26 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 13:38:46 by david             #+#    #+#             */
-/*   Updated: 2025/01/30 19:37:32 by david            ###   ########.fr       */
+/*   Updated: 2025/02/01 09:45:01 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check_sort(t_stacks *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->size_a - 1)
+	{
+		if (stack->a[i] > stack->a[i + 1])
+			return ;
+		i++;
+	}
+	write(1, "stack sort\n", 11);
+	exit (0);
+}
 
 void	sort_two(t_stacks *stack)
 {

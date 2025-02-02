@@ -3,100 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   radix_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:59:49 by david             #+#    #+#             */
-/*   Updated: 2025/01/31 21:17:07 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/02 14:21:47 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//rechercher le plus grand nombre du tableau
-static int	max_value(t_stacks *stack)
+void	radix(t_stacks *stack)
 {
-	int	i;
-	int	max_value;
-
-	i = 0;
-	max_value = stack->a[i];
-	while (i < stack->size_a)
-	{
-		if (max_value < stack->a[i])
-			max_value = stack->a[i];
-		i++;
-	}
-	return (max_value);
-}
-
-//p contient le nombre de chiffres de nbr_max exemple 170 = 3 chiffre p = 3
-//si le nombre suivant est 45, il est compter comme 045
-static	int	count_pass(t_stacks *stack)
-{
-	int	p;
-	int	nbr_max;
-
-	p = 0;
-	nbr_max = max_value(stack);
-	while (nbr_max != 0)
-	{
-		nbr_max = nbr_max / 10;
-		p += 1;
-	}
-	return (p);
-}
-
-int	*init_radix(t_stacks *stack)
-{
-	int	*count; // Tableau count init à 0
-	int	pass_max; // Nombre de passes à faire
-	int	pass = 1; // Commence par le 1er pass
-	int	power;
+	int	max;
+	int	exp;
 	int	digit;
 	int	i;
+	int	current;
+	int	current_digit;
+	int original_size;
 
-	pass_max = count_pass(stack);
-	count = malloc(pass_max * 10 * sizeof(int)); // Allouer dynamiquement
-	if (!count)
-		return (NULL); // Gestion d'erreur
-	ft_memset(count, 0, 10 * sizeof(int)); // Init count à 0
-	while (pass <= pass_max) // Boucle sur chaque passe
+	max = max_value(stack);//trouve l index max
+	exp = 1;
+	printf("Max value: %d\n", max);
+	while (max / exp > 0)//exemple max = 1 12 / 1 % = 2 11 / 10 % = 1 12 / 100 < 0 boucle s arrete
 	{
-		ft_memset(count + (10 * (pass - 1)), 0, 10 * sizeof(int));
-		i = -1;
-		power = ft_power(10, pass - 1); // Comme à l'index pass 0 qui est pass 1
-		while (++i < stack->size_a) // Parcourt chaque élément de la pile A
+		printf("\n---- Processing exp = %d ----\n", exp);
+		digit = 0;
+		while (digit < 10)//compare avec un digit de 0 > 9
 		{
-			digit = (stack->a[i] / power) % 10; // On extrait chaque chiffre
-			count[digit + (10 * (pass - 1))]++;
+			printf("Checking digit: %d\n", digit);
+			original_size = stack->size_a;// permet de garder la taille originale de la pile a
+			i = 0;
+			while (i < original_size)
+			{
+				current = stack->a[0];// on cheeck toujours l index 0
+				current_digit = (current / exp) % 10;//on extrait le modulo de l index
+				printf("stack->a[%d] = %d -> Extracted digit: %d\n", i, stack->a[i], digit);
+				if (current_digit == digit)//on verfie si l extraction et le digit courant sont = si oui on push dans pile b
+				{
+					printf("Pushing %d to B\n", stack->a[i]);
+					push_b(stack);
+				}
+				else
+				{
+					printf("Rotating A\n");
+					rotate_a(stack);//sinon on rotate dans la pile a jusqu a trouver
+				}
+				i++;
+			}
+			while (stack->size_b > 0)//on rempli la pile a trier
+			{
+				push_a(stack);
+			}
+			digit++;
 		}
-		pass++;
+		exp *= 10;
 	}
-	return (count); // Retourne le tableau alloué dynamiquement
+	printf("\n✅ Final sorted stack->a: ");
+	for (i = 0; i < stack->size_a; i++)
+		printf("%d ", stack->a[i]);
+	printf("\n");
 }
-
-//on fais tous cas de digit donc de 0 - 9
-//ensuite on passe au pass suivant
-void	push_to_b(t_stack *stack, int pass)
-{
-	int	*count;
-	int	power;
-	int	current;//contient le groupe avec les nombres
-	int	digit;//chiffre qui sera compter de 0 a 9
-	int	current_digit;//va contenir le chiffre qui a ete diviser unite dizaine etc
-
-	count = init_radix(stack);
-	power = ft_power(10, pass - 1);
-	digit = 0;
-	while (digit < 10)//on commence avec digit == 0 donc unite == 0
-	{
-		i = 0;
-		while (i < count[digit + (10 * (pass - 1))])//on commence par les unite dans le pass 1
-		{
-			i++;
-		}
-		digit++;
-	}
-}
-
-void	radix_sort(t_stacks *stack)

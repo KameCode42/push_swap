@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 13:38:46 by david             #+#    #+#             */
-/*   Updated: 2025/02/01 09:45:01 by david            ###   ########.fr       */
+/*   Updated: 2025/02/02 15:20:18 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	check_sort(t_stacks *stack)
 			return ;
 		i++;
 	}
-	write(1, "stack sort\n", 11);
-	exit (0);
+	write(1, "stack sorted\n", 11);
+	free(stack->a);
+	free(stack->b);
+	exit (1);
 }
 
 void	sort_two(t_stacks *stack)

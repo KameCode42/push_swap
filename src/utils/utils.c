@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/02/01 17:48:30 by david            ###   ########.fr       */
+/*   Updated: 2025/02/02 15:03:05 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,21 +69,4 @@ int	ft_power(int base, int exposant)
 		i++;
 	}
 	return (result);
-}
-
-//rechercher le plus grand nombre du tableau
-int	max_value(t_stacks *stack)
-{
-	int	i;
-	int	max_value;
-
-	i = 0;
-	max_value = stack->a[i];
-	while (i < stack->size_a)
-	{
-		if (max_value < stack->a[i])
-			max_value = stack->a[i];
-		i++;
-	}
-	return (max_value);
 }

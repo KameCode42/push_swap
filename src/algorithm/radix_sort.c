@@ -6,12 +6,12 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 08:59:49 by david             #+#    #+#             */
-/*   Updated: 2025/02/02 17:08:12 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/06 18:27:39 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/*
 void	radix(t_stacks *stack)
 {
 	int	max;
@@ -39,4 +39,36 @@ void	radix(t_stacks *stack)
 			push_a(stack);
 		exp *= 10;
 	}
+}
+*/
+
+void radix(t_stacks *stack)
+{
+    int i, j;
+    int max = stack->size_a - 1; // Puisque la pile est normalisée, max == n - 1
+    int max_bits = 0;
+
+    // Calcul du nombre de bits nécessaires
+    while ((max >> max_bits) != 0)//juste pour calcuer le nombre de pass
+        max_bits++;
+
+    // Pour chaque bit
+    for (i = 0; i < max_bits; i++)
+    {
+        int size = stack->size_a; // Nombre d'éléments à traiter pour cette passe
+
+        // Pour chaque élément de la pile A
+        for (j = 0; j < size; j++)
+        {
+            // Si le bit i de l'élément en tête vaut 1, on le rotate dans A,
+            // sinon on le pousse dans B.
+            if (((stack->a[0] >> i) & 1) == 1)
+                rotate_a(stack);
+            else
+                push_b(stack);
+        }
+        // On remet tous les éléments de B dans A
+        while (stack->size_b > 0)
+            push_a(stack);
+    }
 }

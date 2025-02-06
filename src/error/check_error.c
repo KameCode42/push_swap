@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/02/06 14:40:26 by david            ###   ########.fr       */
+/*   Updated: 2025/02/06 19:31:20 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_number(int argc, char **argv)
 		convert_number(argv[i], &end);
 		if (*end != '\0')
 		{
-			ft_printf("Error : invalid number: %s\n", argv[i]);
+			write(2, "Error\n", 6);
 			return (1);
 		}
 		i++;
@@ -48,7 +48,7 @@ int	check_duplicate(int argc, char **argv)
 			nbr_j = convert_number(argv[j], NULL);
 			if (nbr_i == nbr_j)
 			{
-				ft_printf("Error : duplicate detected\n");
+				write(2, "Error\n", 6);
 				return (1);
 			}
 			j++;
@@ -58,64 +58,83 @@ int	check_duplicate(int argc, char **argv)
 	return (0);
 }
 
-int	split_args(char **argv)
+int split_args(char **argv, t_stacks *stack)
 {
-	int		i;
-	char	**numbers;
+    int     i;
+    int     j;
+    char    **numbers;
 
-	numbers = ft_split(argv[1], ' ');
-	if (numbers == NULL || numbers[0] == NULL)
-	{
-		ft_printf("Error : invalid argument number\n");
-		free_split(numbers);
-		return (1);
-	}
-	i = 0;
-	while (numbers[i] != NULL)
-		i++;
-	if (check_number(i, numbers) || check_duplicate(i, numbers))
-	{
-		free_split(numbers);
-		return (1);
-	}
-	free_split(numbers);
-	return (0);
+    numbers = ft_split(argv[1], ' ');
+    if (numbers == NULL || numbers[0] == NULL)
+    {
+        write(2, "Error\n", 6);
+        free_split(numbers);
+        return (1);
+    }
+    i = 0;
+    while (numbers[i] != NULL)
+        i++;
+    
+    // Vérification des nombres et des doublons
+    if (check_number(i, numbers) || check_duplicate(i, numbers))
+    {
+        free_split(numbers);
+        exit (1);
+    }
+
+    /* Allocation du tableau d'entiers dans stack->a */
+    stack->a = malloc(sizeof(int) * i);
+	stack->b = malloc(sizeof(int) * i);
+    if (!stack->a)
+    {
+        write(2, "Error\n", 6);
+        free_split(numbers);
+        return (1);
+    }
+	if (!stack->b)
+    {
+        write(2, "Error\n", 6);
+        free_split(numbers);
+        return (1);
+    }
+    stack->size_a = i; // si vous avez ce champ dans votre structure
+	stack->size_b = 0;
+    /* Conversion des chaînes en entiers et enregistrement dans stack->a */
+    j = 0;
+    while (j < i)
+    {
+        stack->a[j] = convert_number(numbers[j], NULL);  // ou atoi, en faisant attention aux débordements
+        j++;
+    }
+
+    free_split(numbers);
+
+    return (0);
 }
 
-int	check_args(int argc, char **argv)
+
+int	check_args(int argc, char **argv, t_stacks *stack)
 {
 	if (argc < 2)
 	{
-		ft_printf("Error : invalid argument number\n");
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	if (argc == 2)
 	{
-		if (split_args(argv) != 0)
-			return (1);
+		if (split_args(argv, stack) == 0)
+			return 0;
 		else
-			return (0);
+		{
+			create_stack(stack, argc, argv);
+			return 0;
+		}
 	}
 	else
 	{
 		if (check_number(argc - 1, argv + 1) || check_duplicate(argc - 1, argv + 1))// pas de plus et de moins avant
 			return (1);
-		return (0);
+		create_stack(stack, argc, argv);
+		return 0;
 	}
 }
-
-
-/*
-int	check_args(int argc, char **argv)
-{
-	if (argc < 2)
-	{
-		ft_printf("Error : invalid argument number\n");
-		return (1);
-	}
-	if (check_number(argc, argv) || check_duplicate(argc, argv))
-		return (1);
-	
-	return (0);
-}
-*/

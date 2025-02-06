@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/02/03 19:32:48 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/06 19:49:43 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ static int	skip_space_and_sign(const char *str, int *sign)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
+		if (str[i + 1] == '\0' || (str[i + 1] == ' '))  // Si le signe est seul ou suivi d'espace uniquement
+        {
+			write(2, "Error\n", 6);
+            exit(1);  // Erreur, signe seul
+        }
 		if (str[i] == '-')
 			*sign = -(*sign);
 		i++;

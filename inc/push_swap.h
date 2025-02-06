@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/02/02 15:03:36 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:59:49 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,12 @@ void	radix(t_stacks *stack);
 //utils
 int		convert_number(const char *str, char **end);
 int		ft_power(int base, int exposant);
+void	free_split(char **str);
 
 //error
 int		check_number(int argc, char **argv);
 int		check_duplicate(int argc, char **argv);
-int		check_args(int argc, char **argv);
+int		check_args(t_stacks *stack, int argc, char **argv);
 
 //initiation
 void	create_stack(t_stacks *stack, int argc, char **argv);

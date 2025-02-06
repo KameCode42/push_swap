@@ -6,7 +6,7 @@
 /*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/02/02 15:03:05 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/03 19:32:48 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,19 @@ int	ft_power(int base, int exposant)
 		i++;
 	}
 	return (result);
+}
+
+void	free_split(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL)
+		return ;
+	while (str[i] != NULL)
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

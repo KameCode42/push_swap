@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/02/06 22:03:07 by david            ###   ########.fr       */
+/*   Updated: 2025/02/06 22:28:02 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ static int	skip_space_and_sign(const char *str, int *sign)
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
-		if (str[i + 1] == '\0' || (str[i + 1] == ' '))  // Si le signe est seul ou suivi d'espace uniquement
-        {
+		if (str[i + 1] == '\0' || (str[i + 1] == ' '))
+		{
 			write(2, "Error\n", 6);
-            exit(1);  // Erreur, signe seul
-        }
+			exit(1);
+		}
 		if (str[i] == '-')
 			*sign = -(*sign);
 		i++;
@@ -38,20 +38,20 @@ int	convert_number(const char *str, char **end)
 {
 	int			i;
 	int			sign;
-	long long	result;  // Utilisation d'un long long pour détecter le dépassement
+	long long	result;
 
 	i = skip_space_and_sign(str, &sign);
-	if (i == -1)  // Vérifie si `skip_space_and_sign` a détecté une erreur
-		return (0);
+	if (i == -1)
+		return (1);
 	result = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = (result * 10) + (str[i] - 48);
-		if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)  // Détection de dépassement
+		if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)
 		{
 			if (end != NULL)
 				*end = (char *)&str[i];
-			return (1);  // Retourne une erreur au lieu de INT_MAX ou INT_MIN
+			return (1);
 		}
 		i++;
 	}

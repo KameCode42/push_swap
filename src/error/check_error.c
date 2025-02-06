@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/02/06 21:15:18 by david            ###   ########.fr       */
+/*   Updated: 2025/02/06 22:30:24 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,58 +60,44 @@ int	check_duplicate(int argc, char **argv)
 
 int split_args(char **argv, t_stacks *stack)
 {
-    int     i;
-    int     j;
-    char    **numbers;
+	int		i;
+	int		j;
+	char	**numbers;
 
-    numbers = ft_split(argv[1], ' ');
-    if (numbers == NULL || numbers[0] == NULL)
-    {
-        write(2, "Error\n", 6);
-        free_split(numbers);
-        return (1);
-    }
-    i = 0;
-    while (numbers[i] != NULL)
-        i++;
-    
-    // Vérification des nombres et des doublons
-    if (check_number(i, numbers) || check_duplicate(i, numbers))
-    {
-        free_split(numbers);
-        exit (1);
-    }
-
-    /* Allocation du tableau d'entiers dans stack->a */
-    stack->a = malloc(sizeof(int) * i);
+	numbers = ft_split(argv[1], ' ');
+	if (numbers == NULL || numbers[0] == NULL)
+	{
+		write(2, "Error\n", 6);
+		free_split(numbers);
+		return (1);
+	}
+	i = 0;
+	while (numbers[i] != NULL)
+		i++;
+	if (check_number(i, numbers) || check_duplicate(i, numbers))
+	{
+		free_split(numbers);
+		exit (1);
+	}
+	stack->a = malloc(sizeof(int) * i);
 	stack->b = malloc(sizeof(int) * i);
-    if (!stack->a)
-    {
-        write(2, "Error\n", 6);
-        free_split(numbers);
-        return (1);
-    }
-	if (!stack->b)
-    {
-        write(2, "Error\n", 6);
-        free_split(numbers);
-        return (1);
-    }
-    stack->size_a = i; // si vous avez ce champ dans votre structure
+	if (stack->a == NULL || stack->b == NULL)
+	{
+		write(2, "Error\n", 6);
+		free_split(numbers);
+		return (1);
+	}
+	stack->size_a = i;
 	stack->size_b = 0;
-    /* Conversion des chaînes en entiers et enregistrement dans stack->a */
-    j = 0;
-    while (j < i)
-    {
-        stack->a[j] = convert_number(numbers[j], NULL);  // ou atoi, en faisant attention aux débordements
-        j++;
-    }
-
-    free_split(numbers);
-
-    return (0);
+	j = 0;
+	while (j < i)
+	{
+		stack->a[j] = convert_number(numbers[j], NULL);
+		j++;
+	}
+	free_split(numbers);
+	return (0);
 }
-
 
 int	check_args(int argc, char **argv, t_stacks *stack)
 {

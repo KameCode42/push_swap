@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 18:25:04 by david             #+#    #+#             */
-/*   Updated: 2025/02/03 19:37:06 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:25:30 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ static int	alloc_stack(t_stacks *stack, int argc)
 	stack->size_a = argc - 1;
 	stack->size_b = 0;
 	stack->a = malloc(sizeof(int) * stack->size_a);
-	printf("stack->size_a = %d\n", stack->size_a);
 	stack->b = malloc(sizeof(int) * stack->size_a);
 	if ((stack->a == NULL) || (stack->b == NULL))
 	{
@@ -43,7 +42,6 @@ void	create_stack(t_stacks *stack, int argc, char **argv)
 	while (i < stack->size_a)
 	{
 		stack->a[i] = convert_number(argv[i + 1], NULL);
-		printf("stack->a[%d] = %d\n", i, stack->a[i]);  // Ajout du print pour déboguer
 		i++;
 	}
 }

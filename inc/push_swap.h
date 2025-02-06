@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/02/03 18:59:49 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/06 14:40:15 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ void	free_split(char **str);
 //error
 int		check_number(int argc, char **argv);
 int		check_duplicate(int argc, char **argv);
-int		check_args(t_stacks *stack, int argc, char **argv);
+int		split_args(char **argv);
+int		check_args(int argc, char **argv);
 
 //initiation
 void	create_stack(t_stacks *stack, int argc, char **argv);

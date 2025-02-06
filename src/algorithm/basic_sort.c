@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 13:38:46 by david             #+#    #+#             */
-/*   Updated: 2025/02/03 19:05:49 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/06 11:19:35 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,8 @@ void	check_sort(t_stacks *stack)
 	i = 0;
 	while (i < stack->size_a - 1)
 	{
-		printf("Comparing stack->a[%d] = %d and stack->a[%d] = %d\n", i, stack->a[i], i + 1, stack->a[i + 1]);
 		if (stack->a[i] > stack->a[i + 1])
-		{
-			 printf("Array is NOT sorted! Exiting check_sort...\n");
 			 return ;
-		}
 		i++;
 	}
 	ft_printf("stack sorted\n");

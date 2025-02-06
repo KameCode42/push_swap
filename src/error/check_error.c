@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/02/06 19:31:20 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/06 21:15:18 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_number(int argc, char **argv)
 	int		i;
 	char	*end;
 
-	i = 0;// 1 avant
+	i = 0;
 	while (i < argc)
 	{
 		convert_number(argv[i], &end);
@@ -38,7 +38,7 @@ int	check_duplicate(int argc, char **argv)
 	int	nbr_i;
 	int	nbr_j;
 
-	i = 0;// 1 avant
+	i = 0;
 	while (i < argc)
 	{
 		nbr_i = convert_number(argv[i], NULL);
@@ -132,7 +132,7 @@ int	check_args(int argc, char **argv, t_stacks *stack)
 	}
 	else
 	{
-		if (check_number(argc - 1, argv + 1) || check_duplicate(argc - 1, argv + 1))// pas de plus et de moins avant
+		if (check_number(argc - 1, argv + 1) || check_duplicate(argc - 1, argv + 1))
 			return (1);
 		create_stack(stack, argc, argv);
 		return 0;

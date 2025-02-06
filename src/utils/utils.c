@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/02/06 19:49:43 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/06 22:03:07 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,29 @@ static int	skip_space_and_sign(const char *str, int *sign)
 
 int	convert_number(const char *str, char **end)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int			i;
+	int			sign;
+	long long	result;  // Utilisation d'un long long pour détecter le dépassement
 
 	i = skip_space_and_sign(str, &sign);
+	if (i == -1)  // Vérifie si `skip_space_and_sign` a détecté une erreur
+		return (0);
 	result = 0;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if (result > (INT_MAX - (str[i] - 48)) / 10)
+		result = (result * 10) + (str[i] - 48);
+		if ((result * sign) > INT_MAX || (result * sign) < INT_MIN)  // Détection de dépassement
 		{
 			if (end != NULL)
 				*end = (char *)&str[i];
-			if (sign == 1)
-				return (INT_MAX);
-			else
-				return (INT_MIN);
+			return (1);  // Retourne une erreur au lieu de INT_MAX ou INT_MIN
 		}
-		result = (result * 10) + (str[i] - 48);
 		i++;
 	}
 	if (end != NULL)
 		*end = (char *)&str[i];
-	return (result * sign);
+
+	return ((int)(result * sign));
 }
 
 int	ft_power(int base, int exposant)

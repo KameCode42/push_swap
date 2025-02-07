@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 17:07:39 by david             #+#    #+#             */
-/*   Updated: 2025/02/06 22:28:02 by david            ###   ########.fr       */
+/*   Updated: 2025/02/07 10:37:06 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	convert_number(const char *str, char **end)
 	}
 	if (end != NULL)
 		*end = (char *)&str[i];
-
 	return ((int)(result * sign));
 }
 

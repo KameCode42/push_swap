@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:19:43 by david             #+#    #+#             */
-/*   Updated: 2025/02/06 22:30:24 by david            ###   ########.fr       */
+/*   Updated: 2025/02/07 10:36:25 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ int	check_duplicate(int argc, char **argv)
 	return (0);
 }
 
-int split_args(char **argv, t_stacks *stack)
+int	split_args(char **argv, t_stacks *stack)
 {
 	int		i;
-	int		j;
 	char	**numbers;
+	int		result;
 
 	numbers = ft_split(argv[1], ' ');
 	if (numbers == NULL || numbers[0] == NULL)
@@ -79,24 +79,8 @@ int split_args(char **argv, t_stacks *stack)
 		free_split(numbers);
 		exit (1);
 	}
-	stack->a = malloc(sizeof(int) * i);
-	stack->b = malloc(sizeof(int) * i);
-	if (stack->a == NULL || stack->b == NULL)
-	{
-		write(2, "Error\n", 6);
-		free_split(numbers);
-		return (1);
-	}
-	stack->size_a = i;
-	stack->size_b = 0;
-	j = 0;
-	while (j < i)
-	{
-		stack->a[j] = convert_number(numbers[j], NULL);
-		j++;
-	}
-	free_split(numbers);
-	return (0);
+	result = create_stack_split(stack, numbers, i);
+	return (result);
 }
 
 int	check_args(int argc, char **argv, t_stacks *stack)
@@ -109,18 +93,19 @@ int	check_args(int argc, char **argv, t_stacks *stack)
 	if (argc == 2)
 	{
 		if (split_args(argv, stack) == 0)
-			return 0;
+			return (0);
 		else
 		{
 			create_stack(stack, argc, argv);
-			return 0;
+			return (0);
 		}
 	}
 	else
 	{
-		if (check_number(argc - 1, argv + 1) || check_duplicate(argc - 1, argv + 1))
+		if (check_number(argc - 1, argv + 1)
+			|| check_duplicate(argc - 1, argv + 1))
 			return (1);
 		create_stack(stack, argc, argv);
-		return 0;
+		return (0);
 	}
 }

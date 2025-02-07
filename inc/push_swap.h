@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dle-fur <dle-fur@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/02/06 19:30:34 by dle-fur          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:31:13 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,9 @@ int		split_args(char **argv, t_stacks *stack);
 int		check_args(int argc, char **argv, t_stacks *stack);
 
 //initiation
+int		alloc_stack(t_stacks *stack, int argc);
 void	create_stack(t_stacks *stack, int argc, char **argv);
+int		create_stack_split(t_stacks *stack, char **numbers, int size);
 void	create_index(t_stacks *stack);
 
 //push_swap

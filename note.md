@@ -1,22 +1,33 @@
 push_swap :
 - Objectif : trier une pile A avec le moins d'action possible
-- Algo utilise : radix
+- Algo utilise : radix avec des bits
 
-Radix
-- algo qui permet de trier des nombres par leur dizaine
-- si le case du nombre a comparer est vide, on met un 0
-exemple :
+Radix :
+L’algorithme va traiter les bits du chiffre, en commençant par le bit le moins significatif (bit 0) et en allant jusqu’au bit le plus significatif nécessaire pour représenter le plus grand nombre (ici, 6 en binaire s’écrit 110 et nécessite 3 bits : positions 0, 1 et 2).
 
+Les opérations utilisées sont:
 
-//n-s			//trie1			//trie2			//sort
-170		->		170		->		802		->		  2
- 45		->		 90		->		  2		->		 24
- 75		->		802		->		 24		->		 45
- 90		->		  2		->		 45		->		 66
-802		->		 24		->		 66		->		 75
- 24		->		 45		->		170		->		 90
-  2		->		 75		->		 75		->		170
- 66		->		 66		->		 90		-> 		802
+L’idée générale est la suivante pour chaque bit (de 0 à 2):
+
+	Parcourir l’ensemble des éléments de A.
+	Pour chaque élément, extraire le bit d’intérêt avec l’expression ((x >> i) & 1):
+		Si ce bit vaut 1, on effectue un rotate_a (l’élément reste dans A mais passe à la fin).
+		S’il vaut 0, on fait un push_b (l’élément passe dans B).
+	Une fois tous les éléments traités pour ce bit, on remet tous les éléments de B dans A avec push_a.
+
+Liste initiale dans la pile A (le premier élément est le sommet) :
+A = [6, 5, 3, 4, 2, 0, 1]
+B = [ ] (vide)
+
+Pour rappel, voici les représentations binaires (sur 3 bits) de nos nombres :
+
+    6 → 110 (bit2 = 1, bit1 = 1, bit0 = 0)
+    5 → 101 (bit2 = 1, bit1 = 0, bit0 = 1)
+    3 → 011 (bit2 = 0, bit1 = 1, bit0 = 1)
+    4 → 100 (bit2 = 1, bit1 = 0, bit0 = 0)
+    2 → 010 (bit2 = 0, bit1 = 1, bit0 = 0)
+    0 → 000 (tous les bits = 0)
+    1 → 001 (bit2 = 0, bit1 = 0, bit0 = 1)
 
 
 -------------------------------------------------------------------------------------------------------------
@@ -24,12 +35,28 @@ exemple :
 Utils :
 
 - convet_number :
-fonction qui permet de check si le nbr est un INT_MAX ou MIN
-convertit les nombres qui sont en str en int
+fonction qui permet de check si le nbr est un INT_MAX ou MIN ou si il contient des chiffres
 variable end : permet de controler si des chiffres sont remplacer par des nombres
 
 -------------------------------------------------------------------------------------------------------------
 
+Error :
+
+- check_number :
+fonction qui permet de controler si notre nombre ne contient pas de chiffre
+
+- check_duplicate :
+fonction qui permet de controler si notre pile a ne contient pas de nombre identiques
+
+- split_args :
+fonction qui permet de split les nombres dans le cas d une entree comme "6 5 4 3 2"
+
+- check_args :
+fonction qui permet de checker les argument et qui regroupe plusieurs fonctions
+si argc == 2 on utilise notre pile split 
+si argc > 2 on utilise notre pile normal
+
+-------------------------------------------------------------------------------------------------------------
 Initiation :
 
 - init_index
@@ -47,7 +74,11 @@ index creer		 : 3 2 1 0
 -----------
 
 -init_stack
-permet d'allouer, de convertir et de remplir la pile a
+create_stack :
+permet d'allouer, de convertir et de remplir la pile a avec des valeurs sans ""
+
+create_stack_split :
+permet d'allouer, de convertir et de remplir la pile a avec des valeurs avec ""
 
 -------------------------------------------------------------------------------------------------------------
 
@@ -104,6 +135,9 @@ permet de faire un reverse_rotate_a et un reverse_rotate_b en meme temps
 
 Algorithm :
 
+- check_sort
+fonction permet de savoir si la pile a est deja trier
+
 - sort_two
 fonction qui permet de trier 2 nombres dans la pile a
 
@@ -137,5 +171,34 @@ push a 2 fois dans la pile a
 si l index 0 == au plus grand nombre
 swap
 rotate pour le trie final
+
+-----------
+
+- radix_sort :
+L’algorithme va traiter les bits du chiffre, en commençant par le bit le moins significatif (bit 0) et en allant jusqu’au bit le plus significatif nécessaire pour représenter le plus grand nombre
+
+index_max = plus grand nombre de notre pile, si size = 5, plus grand index = 4
+max_bits represente le nombre de passe que l'on va effectuer
+exemple :
+index_max = 6 en bits = 110, boucle : 110 - 011 - 001 donc 3 pass (pass0, pass1, pass2)
+
+1er boucle : on parcours la colonne bit_0 ou pass_0
+2eme boucle : on parcours les bit de bas en haut
+exemple:
+				1er boucle
+					|
+6 → 110 (bit2 = 1, bit1 = 1, bit0 = 0)
+5 → 101 (bit2 = 1, bit1 = 0, bit0 = 1)
+3 → 011 (bit2 = 0, bit1 = 1, bit0 = 1)	-- 2eme boucle
+4 → 100 (bit2 = 1, bit1 = 0, bit0 = 0)
+2 → 010 (bit2 = 0, bit1 = 1, bit0 = 0)
+
+si le bit le plus a droite == 1, on rotate jusqu a trouver le premier bit 0
+si le bit 0 es trouver il est push dans b
+
+a la fin du bit_0 ou pass_0, la pile b contient tous les bits avec 0 et la pile a contient tous les bits avec 1
+on push tous les elements de la pile b dans la pile a
+
+on recommence avec le bit_1 ou pass_1 jusqu a ce que la pile a soit trier
 
 -------------------------------------------------------------------------------------------------------------

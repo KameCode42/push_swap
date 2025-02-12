@@ -6,7 +6,7 @@
 /*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 13:50:35 by david             #+#    #+#             */
-/*   Updated: 2025/02/07 10:31:13 by david            ###   ########.fr       */
+/*   Updated: 2025/02/12 19:19:45 by david            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ void	radix(t_stacks *stack);
 
 //utils
 int		convert_number(const char *str, char **end);
-int		ft_power(int base, int exposant);
 void	free_split(char **str);
 
 //error

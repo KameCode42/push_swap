@@ -12,6 +12,11 @@ A chaque étape, on applique une des opérations autorisées : <br>
 swap (sa, sb, ss)
 - sa, sb : échange les 2 premiers éléments de la pile A (ou B)
 - ss : sa et sb simultanément
+
+
+
+
+
 push (pa, pb)
 - pa, pb : pousse le sommet de B vers A (pa) ou de A vers B (pb)
 rotate (ra, rb, rr)

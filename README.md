@@ -33,4 +33,24 @@ Algorithme utilisé dans ce projet : <br>
 - On utilise un tri par Radix, pour gérer efficacement jusqu'à plusieurs centaines d’éléments (500 max).
 
 # Explications :
+Calcul de max_bits
+- Cherche le plus grand index (index_max) = size_a - 1.
 
+La boucle while ((index_max >> max_bits) != 0)
+- Compte le nombre de bits nécessaires pour le représenter.
+
+Boucle externe sur les bits (while (++i < max_bits))
+- Chaque itération traite un bit (bit 0, bit 1, …).
+
+Boucle interne sur les éléments (while (++j < size))
+Pour chaque élément :
+- Décalage à droite de i et & 1 pour isoler le bit i-ème.
+- Si le bit = 1 → rotate_a (on laisses l’élément dans A en le faisant passer en fin de pile).
+- Si le bit = 0 → push_b (on envoies l’élément vers B).
+- Une fois tous les éléments traités pour le bit courant, on récupères tous les éléments de B vers A, ce qui préserve l’ordre partiel obtenu.
+- Après la dernière passe, la pile A est triée en ordre croissant.
+
+Exemple :
+- Si les valeurs initiales sont [40, 10, 30, 20], leur liste triée est [10, 20, 30, 40].
+- On réétiquette : 10→0, 20→1, 30→2, 40→3.
+- On travaille ensuite avec [3, 0, 2, 1] dans la pile A.

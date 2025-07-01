@@ -9,7 +9,7 @@ Initialisation :
 
 Tri : <br>
 A chaque étape, on applique une des opérations autorisées :
-swap (sa, sb, ss)
+swap (sa, sb, ss) <br>
 - sa, sb : échange les 2 premiers éléments de la pile A (ou B)
 - ss : sa et sb simultanément
 push (pa, pb)

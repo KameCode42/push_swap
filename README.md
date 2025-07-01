@@ -34,15 +34,15 @@ Algorithme utilisé dans ce projet : <br>
 
 # Explications :
 Calcul de max_bits
-- Cherche le plus grand index (index_max) = size_a - 1.
+- Cherche le plus grand index (index_max) = size_a - 1
 
 La boucle while ((index_max >> max_bits) != 0)
-- Compte le nombre de bits nécessaires pour le représenter.
+- Compte le nombre de bits nécessaires pour le représenter
 
 Boucle externe sur les bits (while (++i < max_bits))
-- Chaque itération traite un bit (bit 0, bit 1, …).
+- Chaque itération traite un bit (bit 0, bit 1, …)
 
-Boucle interne sur les éléments (while (++j < size))
+Boucle interne sur les éléments (while (++j < size)) <br>
 Pour chaque élément :
 - Décalage à droite de i et & 1 pour isoler le bit i-ème.
 - Si le bit = 1 → rotate_a (on laisses l’élément dans A en le faisant passer en fin de pile).

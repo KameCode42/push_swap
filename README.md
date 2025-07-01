@@ -13,19 +13,14 @@ A chaque étape, on applique une des opérations autorisées : <br>
 swap (sa, sb, ss) :
 - sa, sb : échange les 2 premiers éléments de la pile A (ou B)
 - ss : sa et sb simultanément
-
-
-
-
-
-push (pa, pb)
+push (pa, pb) :
 - pa, pb : pousse le sommet de B vers A (pa) ou de A vers B (pb)
-rotate (ra, rb, rr)
+rotate (ra, rb, rr) :
 - ra, rb : fait remonter le sommet de A (ou B) en bas
 - rr : ra et rb simultanément
-reverse rotate (rra, rrb, rrr)
+reverse rotate (rra, rrb, rrr) :
 - rra, rrb : fait descendre le dernier élément de A (ou B) au sommet
-rrr	: rra et rrb simultanément
+- rrr	: rra et rrb simultanément
 
 Algorithme utilisé :
 - Pour gérer efficacement jusqu'à plusieurs centaines d’éléments, on utilise un tri par Radix adapté aux piles

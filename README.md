@@ -30,7 +30,7 @@ reverse rotate (rra, rrb, rrr) : <br>
 <br>
 
 Algorithme utilisé dans ce projet : <br>
-- On utilise un tri par Radix, pour gérer efficacement jusqu'à plusieurs centaines d’éléments.
+- On utilise un tri par Radix, pour gérer efficacement jusqu'à plusieurs centaines d’éléments (500 max).
 
 # Explications :
 

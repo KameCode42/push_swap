@@ -32,10 +32,10 @@ reverse rotate (rra, rrb, rrr) : <br>
 Algorithme utilisé dans ce projet : <br>
 - On utilise un tri par Radix, pour gérer efficacement jusqu'à plusieurs centaines d’éléments (499 max).
 - Le but est de convertir chaque index (0, 1, 2, …,) en sa représentation binaire, puis de trier bit par bit. <br>
-0 → 000  
-1 → 001 
-2 → 010 
-3 → 011
+0 → 000 <br>
+1 → 001 <br>
+2 → 010 <br>
+3 → 011 <br>
 4 → 100 
 
 # Explications :

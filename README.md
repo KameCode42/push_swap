@@ -29,8 +29,8 @@ reverse rotate (rra, rrb, rrr) : <br>
 - rrr	: rra et rrb simultanément
 <br>
 
-Algorithme utilisé : <br>
-- Pour gérer efficacement jusqu'à plusieurs centaines d’éléments, on utilise un tri par Radix adapté aux piles
+Algorithme utilisé dans ce projet : <br>
+- On utilise un tri par Radix, pour gérer efficacement jusqu'à plusieurs centaines d’éléments.
 
 # Explications :
 

@@ -8,7 +8,7 @@ Initialisation :
 - On lit les arguments et on les place dans la pile A (la pile B est vide).
 
 Tri : <br>
-A chaque étape, on applique une des opérations autorisées : <br>
+A chaque étape, on applique une des opérations autorisées :
 
 swap (sa, sb, ss) :
 - sa, sb : échange les 2 premiers éléments de la pile A (ou B)

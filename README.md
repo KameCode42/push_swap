@@ -14,17 +14,21 @@ swap (sa, sb, ss) :
 - sa, sb : échange les 2 premiers éléments de la pile A (ou B)
 - ss : sa et sb simultanément
 <br>
-push (pa, pb) : <br>
+
+push (pa, pb) :
 - pa, pb : pousse le sommet de B vers A (pa) ou de A vers B (pb)
 <br>
+
 rotate (ra, rb, rr) : <br>
 - ra, rb : fait remonter le sommet de A (ou B) en bas
 - rr : ra et rb simultanément
 <br>
+
 reverse rotate (rra, rrb, rrr) : <br>
 - rra, rrb : fait descendre le dernier élément de A (ou B) au sommet
 - rrr	: rra et rrb simultanément
 <br>
+
 Algorithme utilisé : <br>
 - Pour gérer efficacement jusqu'à plusieurs centaines d’éléments, on utilise un tri par Radix adapté aux piles
 

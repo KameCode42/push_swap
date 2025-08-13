@@ -1,4 +1,4 @@
-![push_swap](https://github.com/user-attachments/assets/0964941e-bf0f-4fec-9e55-0276531e1aaa)
+
 
 # Sujet :
 push_swap est un projet d’algorithme et d’optimisation. L’objectif est de trier une série d’entiers fournis en argument de la ligne de commande, en utilisant deux piles (stack A et stack B) et un ensemble limité d’opérations.

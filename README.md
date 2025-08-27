@@ -1,4 +1,4 @@
-<img width="720" height="720" alt="Image" src="https://github.com/user-attachments/assets/19912239-3f98-4e19-803f-567930488b84" />
+<img width="720" height="450" alt="Image" src="https://github.com/user-attachments/assets/19912239-3f98-4e19-803f-567930488b84" />
 
 # Sujet :
 push_swap est un projet d’algorithme et d’optimisation. L’objectif est de trier une série d’entiers fournis en argument de la ligne de commande, en utilisant deux piles (stack A et stack B) et un ensemble limité d’opérations.
